@@ -1,3 +1,4 @@
+import 'package:esports_analysis_application/Prensentation/Screens/auth/signup_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,8 @@ class ArenaX extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "ArenaX",
-      theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: false),
+      theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: false,
+      ),
       debugShowCheckedModeBanner: false,
       home: ArenaxLogin(),
     );
@@ -93,12 +95,13 @@ class _ArenaxLoginState extends State<ArenaxLogin> {
               width: 300,
               child: Align(
                 alignment: Alignment.topRight,
-                child: InkWell( onTap: (){
-                  print("Connect To firebase");
-                },
+                child: InkWell(
+                  onTap: () {
+                    print("Connect To firebase");
+                  },
                   child: Text(
                     "Forgot Password?",
-                    style: TextStyle(color: Colors.white60,fontSize: 12),
+                    style: TextStyle(color: Colors.white60, fontSize: 12),
                   ),
                 ),
               ),
@@ -107,14 +110,10 @@ class _ArenaxLoginState extends State<ArenaxLogin> {
 
             Container(
               width: 100,
-              child: ElevatedButton(onPressed: () {
-
-
-
-              }, child: Text("Login")),
+              child: ElevatedButton(onPressed: () {}, child: Text("Login")),
             ),
-            SizedBox(height: 10,),
-            
+            SizedBox(height: 10),
+
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -123,24 +122,33 @@ class _ArenaxLoginState extends State<ArenaxLogin> {
                   Container(
                     alignment: Alignment.center,
 
-                    child: Text("Don't have account ?",style: TextStyle(color: Colors.white54),),
+                    child: Text(
+                      "Don't have account ?",
+                      style: TextStyle(color: Colors.white54),
+                    ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 5 ),
+                    padding: const EdgeInsets.only(left: 5),
                     child: Container(
-
                       alignment: Alignment.topLeft,
-                      child: InkWell(onTap:()
-                          {
-                            print("signup Page");
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => singUp()),
+                          );
+                        },
 
-
-                          },child: Text("SingUp",style: TextStyle(color: Colors.white,),)),
+                        child: Text(
+                          "SingUp",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
                     ),
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
