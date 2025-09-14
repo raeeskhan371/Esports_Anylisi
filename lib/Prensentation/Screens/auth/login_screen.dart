@@ -70,6 +70,7 @@ class _ArenaxLoginState extends State<ArenaxLogin> {
             Container(
               width: 300,
               child: TextField(
+                style: TextStyle(color: Colors.white),
                 cursorColor: Colors.cyanAccent,
 
                 decoration: InputDecoration(
