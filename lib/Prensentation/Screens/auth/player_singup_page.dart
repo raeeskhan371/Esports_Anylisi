@@ -2,27 +2,27 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(leaderSingup());
+  runApp(playerSingup());
 }
 
-class leaderSingup extends StatefulWidget {
+class playerSingup extends StatefulWidget {
   @override
-  State<leaderSingup> createState() => _leaderSingupState();
+  State<playerSingup> createState() => _playerSingupState();
 }
 
-class _leaderSingupState extends State<leaderSingup> {
+class _playerSingupState extends State<playerSingup> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: leaderform());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: playerform());
   }
 }
 
-class leaderform extends StatefulWidget {
+class playerform extends StatefulWidget {
   @override
-  State<leaderform> createState() => _leaderformState();
+  State<playerform> createState() => _playerformState();
 }
 
-class _leaderformState extends State<leaderform> {
+class _playerformState extends State<playerform> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,10 +44,15 @@ class _leaderformState extends State<leaderform> {
                 image: AssetImage("assets/images/Arena logo.png"),
                 height: 200,
               ),
-              Text("Sign up now and lead your team to victory!",
-                style: TextStyle(fontSize: 15,
-                    color: Colors.white, fontWeight: FontWeight.bold),),
-              SizedBox(height: 40,),
+              Text(
+                "Sign up now and connect with your team.",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 40),
 
               //   Text Fields form
               Container(
@@ -68,12 +73,12 @@ class _leaderformState extends State<leaderform> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(color: CupertinoColors.white),
+                      borderSide: BorderSide(color: Colors.lightBlueAccent),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 12),
+              SizedBox(height: 15),
               Container(
                 width: 300,
                 child: TextField(
@@ -85,7 +90,6 @@ class _leaderformState extends State<leaderform> {
                   cursorColor: Colors.white70,
                   decoration: InputDecoration(
                     labelStyle: TextStyle(color: Colors.white60),
-                    suffixIcon: Icon(Icons.email_outlined),
                     labelText: "Email Address",
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
@@ -93,12 +97,12 @@ class _leaderformState extends State<leaderform> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(color: CupertinoColors.white),
+                      borderSide: BorderSide(color: Colors.lightBlueAccent),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 12),
+              SizedBox(height: 15),
               Container(
                 width: 300,
                 child: TextField(
@@ -117,36 +121,12 @@ class _leaderformState extends State<leaderform> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(color: CupertinoColors.white),
+                      borderSide: BorderSide(color: Colors.lightBlueAccent),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 12),
-              Container(
-                width: 300,
-                child: TextField(
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                  ),
-                  cursorColor: Colors.white70,
-                  decoration: InputDecoration(
-                    labelStyle: TextStyle(color: Colors.white60),
-                    labelText: "Team Name",
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(color: CupertinoColors.white),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(color: CupertinoColors.white),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(height: 12),
+              SizedBox(height: 15),
               Container(
                 width: 300,
                 child: TextField(
@@ -165,12 +145,12 @@ class _leaderformState extends State<leaderform> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(color: CupertinoColors.white),
+                      borderSide: BorderSide(color: Colors.lightBlueAccent),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 12),
+              SizedBox(height: 15),
               Container(
                 width: 300,
                 margin: EdgeInsets.only(bottom: 20),
@@ -190,21 +170,22 @@ class _leaderformState extends State<leaderform> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(color: CupertinoColors.white),
+                      borderSide: BorderSide(color: Colors.lightBlueAccent),
                     ),
                   ),
                 ),
               ),
+              SizedBox(height: 15),
               Container(
                 width: 300,
-
-                child: ElevatedButton(onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue),
-                    child: Text(
-                      "Singup", style: TextStyle(color: Colors.white),)),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blueAccent,
+                  ),
+                  child: Text("Singup", style: TextStyle(color: Colors.white)),
+                ),
               ),
-
               SizedBox(height: 20),
               Container(
                 child: ElevatedButton(
@@ -220,9 +201,8 @@ class _leaderformState extends State<leaderform> {
                 ),
               ),
               SizedBox(height: 8,),
-              Container(margin: EdgeInsets.only(bottom: 40),
-                  child: Text("Go Back",
-                    style: TextStyle(color: Colors.white, fontSize: 14),))
+              Container( margin: EdgeInsets.only(bottom: 40),
+                  child: Text("Go Back",style: TextStyle(color: Colors.white,fontSize: 14),))
             ],
           ),
         ),
