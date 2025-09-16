@@ -11,8 +11,7 @@ class ArenaX extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "ArenaX",
-      theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: false,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: false),
       debugShowCheckedModeBanner: false,
       home: ArenaxLogin(),
     );

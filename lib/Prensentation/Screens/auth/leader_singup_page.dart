@@ -44,10 +44,15 @@ class _leaderformState extends State<leaderform> {
                 image: AssetImage("assets/images/Arena logo.png"),
                 height: 200,
               ),
-              Text("Sign up now and lead your team to victory!",
-                style: TextStyle(fontSize: 15,
-                    color: Colors.white, fontWeight: FontWeight.bold),),
-              SizedBox(height: 40,),
+              Text(
+                "Sign up now and lead your team to victory!",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 40),
 
               //   Text Fields form
               Container(
@@ -60,6 +65,10 @@ class _leaderformState extends State<leaderform> {
                   ),
                   cursorColor: Colors.white70,
                   decoration: InputDecoration(
+                    suffixIcon: Icon(
+                      Icons.drive_file_rename_outline_sharp,
+                      color: Colors.white,
+                    ),
                     labelStyle: TextStyle(color: Colors.white60),
                     labelText: "Full Name",
                     enabledBorder: OutlineInputBorder(
@@ -85,7 +94,7 @@ class _leaderformState extends State<leaderform> {
                   cursorColor: Colors.white70,
                   decoration: InputDecoration(
                     labelStyle: TextStyle(color: Colors.white60),
-                    suffixIcon: Icon(Icons.email_outlined),
+                    suffixIcon: Icon(Icons.email_outlined, color: Colors.white),
                     labelText: "Email Address",
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
@@ -109,6 +118,7 @@ class _leaderformState extends State<leaderform> {
                   ),
                   cursorColor: Colors.white70,
                   decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.person, color: Colors.white),
                     labelStyle: TextStyle(color: Colors.white60),
                     labelText: "Username",
                     enabledBorder: OutlineInputBorder(
@@ -133,6 +143,7 @@ class _leaderformState extends State<leaderform> {
                   ),
                   cursorColor: Colors.white70,
                   decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.groups, color: Colors.white),
                     labelStyle: TextStyle(color: Colors.white60),
                     labelText: "Team Name",
                     enabledBorder: OutlineInputBorder(
@@ -150,6 +161,7 @@ class _leaderformState extends State<leaderform> {
               Container(
                 width: 300,
                 child: TextField(
+                  obscureText: true,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
@@ -157,6 +169,10 @@ class _leaderformState extends State<leaderform> {
                   ),
                   cursorColor: Colors.white70,
                   decoration: InputDecoration(
+                    suffixIcon: Icon(
+                      Icons.remove_red_eye_outlined,
+                      color: Colors.white,
+                    ),
                     labelStyle: TextStyle(color: Colors.white60),
                     labelText: "Password",
                     enabledBorder: OutlineInputBorder(
@@ -175,6 +191,7 @@ class _leaderformState extends State<leaderform> {
                 width: 300,
                 margin: EdgeInsets.only(bottom: 20),
                 child: TextField(
+                  obscureText: true,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
@@ -182,6 +199,10 @@ class _leaderformState extends State<leaderform> {
                   ),
                   cursorColor: Colors.white70,
                   decoration: InputDecoration(
+                    suffixIcon: Icon(
+                      Icons.remove_red_eye_outlined,
+                      color: Colors.white,
+                    ),
                     labelStyle: TextStyle(color: Colors.white60),
                     labelText: "Confirm Password",
                     enabledBorder: OutlineInputBorder(
@@ -198,18 +219,18 @@ class _leaderformState extends State<leaderform> {
               Container(
                 width: 300,
 
-                child: ElevatedButton(onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue),
-                    child: Text(
-                      "Singup", style: TextStyle(color: Colors.white),)),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+                  child: Text("Singup", style: TextStyle(color: Colors.white)),
+                ),
               ),
 
               SizedBox(height: 20),
               Container(
                 child: ElevatedButton(
                   onPressed: () {
-
+                    Navigator.pop(context);
                   },
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
                   child: Icon(
@@ -219,10 +240,14 @@ class _leaderformState extends State<leaderform> {
                   ),
                 ),
               ),
-              SizedBox(height: 8,),
-              Container(margin: EdgeInsets.only(bottom: 40),
-                  child: Text("Go Back",
-                    style: TextStyle(color: Colors.white, fontSize: 14),))
+              SizedBox(height: 8),
+              Container(
+                margin: EdgeInsets.only(bottom: 40),
+                child: Text(
+                  "Go Back",
+                  style: TextStyle(color: Colors.white, fontSize: 14),
+                ),
+              ),
             ],
           ),
         ),

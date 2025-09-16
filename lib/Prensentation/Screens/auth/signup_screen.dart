@@ -97,7 +97,8 @@ class _singUpState extends State<singUp> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => playerform()),
+                                builder: (context) => playerform(),
+                              ),
                             );
                           },
                           child: CircleAvatar(
@@ -121,6 +122,34 @@ class _singUpState extends State<singUp> {
                       ],
                     ),
                   ],
+                ),
+                SizedBox(height: 50),
+                Container(
+                  width: 80,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      backgroundColor: Colors.blue,
+                    ),
+                    child: Icon(
+                      Icons.arrow_circle_left,
+                      size: 30,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 8),
+                Container(
+                  margin: EdgeInsets.only(bottom: 40),
+                  child: Text(
+                    "Go Back",
+                    style: TextStyle(color: Colors.white, fontSize: 14),
+                  ),
                 ),
               ],
             ),

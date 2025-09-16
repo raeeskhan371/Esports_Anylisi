@@ -65,6 +65,10 @@ class _playerformState extends State<playerform> {
                   ),
                   cursorColor: Colors.white70,
                   decoration: InputDecoration(
+                    suffixIcon: Icon(
+                      Icons.drive_file_rename_outline_sharp,
+                      color: Colors.white,
+                    ),
                     labelStyle: TextStyle(color: Colors.white60),
                     labelText: "Full Name",
                     enabledBorder: OutlineInputBorder(
@@ -89,6 +93,7 @@ class _playerformState extends State<playerform> {
                   ),
                   cursorColor: Colors.white70,
                   decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.email_outlined, color: Colors.white),
                     labelStyle: TextStyle(color: Colors.white60),
                     labelText: "Email Address",
                     enabledBorder: OutlineInputBorder(
@@ -113,6 +118,7 @@ class _playerformState extends State<playerform> {
                   ),
                   cursorColor: Colors.white70,
                   decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.person, color: Colors.white),
                     labelStyle: TextStyle(color: Colors.white60),
                     labelText: "Username",
                     enabledBorder: OutlineInputBorder(
@@ -130,6 +136,7 @@ class _playerformState extends State<playerform> {
               Container(
                 width: 300,
                 child: TextField(
+                  obscureText: true,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
@@ -137,6 +144,10 @@ class _playerformState extends State<playerform> {
                   ),
                   cursorColor: Colors.white70,
                   decoration: InputDecoration(
+                    suffixIcon: Icon(
+                      Icons.remove_red_eye_outlined,
+                      color: Colors.white,
+                    ),
                     labelStyle: TextStyle(color: Colors.white60),
                     labelText: "Password",
                     enabledBorder: OutlineInputBorder(
@@ -155,6 +166,7 @@ class _playerformState extends State<playerform> {
                 width: 300,
                 margin: EdgeInsets.only(bottom: 20),
                 child: TextField(
+                  obscureText: true,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
@@ -162,6 +174,10 @@ class _playerformState extends State<playerform> {
                   ),
                   cursorColor: Colors.white70,
                   decoration: InputDecoration(
+                    suffixIcon: Icon(
+                      Icons.remove_red_eye_outlined,
+                      color: Colors.white,
+                    ),
                     labelStyle: TextStyle(color: Colors.white60),
                     labelText: "Confirm Password",
                     enabledBorder: OutlineInputBorder(
@@ -181,18 +197,28 @@ class _playerformState extends State<playerform> {
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueAccent,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    backgroundColor: Colors.blue,
                   ),
                   child: Text("Singup", style: TextStyle(color: Colors.white)),
                 ),
               ),
+
               SizedBox(height: 20),
               Container(
+                width: 80,
                 child: ElevatedButton(
                   onPressed: () {
-
+                    Navigator.pop(context);
                   },
-                  style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    backgroundColor: Colors.blue,
+                  ),
                   child: Icon(
                     Icons.arrow_circle_left,
                     size: 30,
@@ -200,9 +226,14 @@ class _playerformState extends State<playerform> {
                   ),
                 ),
               ),
-              SizedBox(height: 8,),
-              Container( margin: EdgeInsets.only(bottom: 40),
-                  child: Text("Go Back",style: TextStyle(color: Colors.white,fontSize: 14),))
+              SizedBox(height: 8),
+              Container(
+                margin: EdgeInsets.only(bottom: 40),
+                child: Text(
+                  "Go Back",
+                  style: TextStyle(color: Colors.white, fontSize: 14),
+                ),
+              ),
             ],
           ),
         ),
