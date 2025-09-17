@@ -32,7 +32,7 @@ class _leaderDashbordState extends State<leaderDashbord> {
         // App Bar Icons Fields
         actions: [
           IconButton(
-            iconSize: 30,
+            iconSize: 25,
 
             icon: Icon(Icons.notifications, color: Colors.white),
             onPressed: () {
@@ -41,25 +41,17 @@ class _leaderDashbordState extends State<leaderDashbord> {
           ),
         ],
 
-        // leading: SizedBox(
-        //   child: IconButton(
-        //     icon: CircleAvatar(
-        //       backgroundImage: AssetImage("assets/images/Leader.png"),
-        //       radius: 20,
-        //     ),
-        //     onPressed: () {},
-        //   ),
-        // ),
         titleTextStyle: TextStyle(
           color: Colors.white,
           fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
-        iconTheme: IconThemeData(color: Color(0xFF3B82F6)),
+        iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Color(0xFF0A192F),
         centerTitle: true,
       ),
       drawer: Drawer(
+        backgroundColor: Colors.white,
         child: ListView(
           children: [
             DrawerHeader(
@@ -70,18 +62,70 @@ class _leaderDashbordState extends State<leaderDashbord> {
                   ClipRRect(
                     child: Image(
                       image: AssetImage(
-                        "Drawer profile Pic with background.jpg",
+                        "assets/images/Drawer profile Pic with background.jpg",
                       ),
                       height: 100,
                       width: 100,
                     ),
                     borderRadius: BorderRadius.circular(50),
                   ),
+                  Text("\nRaees Khan", style: TextStyle(color: Colors.white)),
                 ],
               ),
             ),
+            Column(
+              children: [
+                ListTile(
+                  title: Text("Team Management"),
+                  leading: Icon(Icons.groups),
+                ),
+                ListTile(
+                  title: Text("Matches"),
+                  leading: Icon(Icons.sports_esports),
+                ),
+                ListTile(
+                  title: Text("Analytics"),
+                  leading: Icon(Icons.bar_chart),
+                ),
+                ListTile(
+                  title: Text("Notifications"),
+                  leading: Icon(Icons.notifications_outlined),
+                ),
+                ListTile(
+                  title: Text("Settings"),
+                  leading: Icon(Icons.settings),
+                ),
+
+                ListTile(
+                  title: Text("Logout"),
+                  leading: Icon(Icons.logout_sharp),
+                ),
+              ],
+            ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Color(0xFF0A192F),
+        selectedItemColor: Colors.white,
+        //
+        unselectedItemColor: Color(0xFFB0B0B0),
+        // currentIndex: ,
+        // magenta-neon
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.groups), label: "Team"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bar_chart),
+            label: "Analytics",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.show_chart),
+            label: "MY Performance",
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.message), label: "Message"),
+        ],
       ),
     );
   }
