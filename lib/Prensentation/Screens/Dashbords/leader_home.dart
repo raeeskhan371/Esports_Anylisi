@@ -1,8 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(leaderH());
+}
+
+class Test extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Icon(FontAwesomeIcons.skull); // 👈 ab import use ho gaya
+  }
 }
 
 class leaderH extends StatelessWidget {
@@ -135,21 +143,116 @@ class _leaderHomeState extends State<leaderHome> {
           ),
         ),
 
-        child: Column(
-
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ListTile(
-              leading: CircleAvatar(
-                radius: 20, // size control karein
-                backgroundImage: AssetImage("assets/images/profile.png"), // image path
-                backgroundColor: Colors.blueAccent, // agar image na mile to ye color show hoga
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: double.infinity,
+                height: 80,
+                color: Colors.amber,
+                child: ListTile(
+                  leading: CircleAvatar(
+                    radius: 20,
+                    // size control karein
+                    backgroundImage: AssetImage("assets/images/profile.png"),
+                    // image path
+                    backgroundColor: Colors
+                        .blueAccent, // agar image na mile to ye color show hoga
+                  ),
+                  title: Text(
+                    "Raees Khan",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  // optional
+                  subtitle: Text(
+                    "Team Leader",
+                    style: TextStyle(color: Colors.white),
+                  ), // optional
+                ),
               ),
-              title: Text("Raees Khan",style: TextStyle(color: Colors.white),), // optional
-              subtitle: Text("Team Leader",style: TextStyle(color: Colors.white),), // optional
-            ),
-          ],
+              SizedBox(height: 10),
+              Container(
+                width: double.infinity,
+                height: 300,
+                color: Colors.orange,
+                child: Stack(
+                  children: [
+                    ListTile(
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.greenAccent,
+                        child: Icon(Icons.person),
+                      ),
+                      title: Text("Name"),
+                      subtitle: Text("Player Role"),
+                      trailing: Icon(Icons.star_border),
+                    ),
+
+                    SizedBox(height: 50),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 50),
+                              child: Icon(Icons.cancel, size: 30),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 50),
+                              child: Text("Kills"),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Icon(Icons.group, size: 30),
+                            ),
+                            Text("Kills"),
+                          ],
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Icon(Icons.flash_on_sharp, size: 30),
+                            ),
+                            Text("Kills"),
+                          ],
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Icon(Icons.timer, size: 30),
+                            ),
+                            Text("Kills"),
+                          ],
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Icon(Icons.medical_services, size: 30),
+                            ),
+                            Text("Kills"),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
