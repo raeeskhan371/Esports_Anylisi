@@ -1,150 +1,306 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_radar_chart/flutter_radar_chart.dart';
+
+
 
 void main() {
-  runApp(const MyApp());
+  runApp(leaderH());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class leaderH extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "Leader Home",
+      theme: ThemeData(primaryColor: Color(0xFF0A192F), useMaterial3: false),
       debugShowCheckedModeBanner: false,
-      title: 'Leader Dashboard',
-      theme: ThemeData.dark(),
-      home: const LeaderHome(),
+      home: leaderHome(),
     );
   }
 }
 
-class LeaderHome extends StatelessWidget {
-  const LeaderHome({super.key});
+class leaderHome extends StatefulWidget {
+  @override
+  State<leaderHome> createState() => _leaderHomeState();
+}
 
+class _leaderHomeState extends State<leaderHome> {
   @override
   Widget build(BuildContext context) {
+    const ticks = [10, 20, 30, 40, 50];
+    const features = ["Kills", "Damage", "Assists", "Survival", "Rescue"];
+    const data = [
+      [35, 42, 28, 40, 22], // Kills, Damage, Assists, Survival, Rescue
+    ];
     return Scaffold(
-      backgroundColor: const Color(0xFF0A192F), // esports dark theme
       appBar: AppBar(
-        backgroundColor: const Color(0xFF1A1F38),
-        elevation: 0,
-        title: const Text(
-          "Leader Dashboard",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
+        title: Text("Team Dashboard"),
+
+        // App Bar Icons Fields
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications, color: Colors.white),
-            onPressed: () {},
+            iconSize: 25,
+
+            icon: Icon(Icons.notifications, color: Colors.white),
+            onPressed: () {
+              // Notification Coding
+            },
           ),
         ],
+
+        titleTextStyle: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+        iconTheme: IconThemeData(color: Colors.white),
+        backgroundColor: Color(0xFF0A192F),
+        centerTitle: true,
       ),
-
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+      drawer: Drawer(
+        backgroundColor: Colors.white,
+        child: ListView(
           children: [
+            DrawerHeader(
+              decoration: BoxDecoration(color: Color(0xFF1A1F38)),
 
-            // 🔹 Profile Section
-            Row(
-              children: [
-                const CircleAvatar(
-                  radius: 35,
-                  backgroundImage: AssetImage(
-                    "assets/images/Drawer profile Pic with background.jpg",
+              child: Column(
+                children: [
+                  ClipRRect(
+                    child: Image(
+                      image: AssetImage(
+                        "assets/images/Drawer profile Pic with background.jpg",
+                      ),
+                      height: 100,
+                      width: 100,
+                    ),
+                    borderRadius: BorderRadius.circular(50),
                   ),
-                ),
-                const SizedBox(width: 16),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text("Raees Khan",
-                        style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
-                    Text("Team Esports",
-                        style: TextStyle(color: Colors.grey, fontSize: 14)),
-                  ],
-                )
-              ],
+                  Text("\nRaees Khan", style: TextStyle(color: Colors.white)),
+                ],
+              ),
             ),
-
-            const SizedBox(height: 20),
-
-            // 🔹 Quick Stats Section
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Column(
               children: [
-                _buildStatCard("Matches", "25", Icons.sports_esports),
-                _buildStatCard("Wins", "18", Icons.emoji_events),
-                _buildStatCard("Rank", "#3", Icons.star),
+                ListTile(
+                  title: Text("Team Management"),
+                  leading: Icon(Icons.groups),
+                ),
+                ListTile(
+                  title: Text("Matches"),
+                  leading: Icon(Icons.sports_esports),
+                ),
+                ListTile(
+                  title: Text("Analytics"),
+                  leading: Icon(Icons.bar_chart),
+                ),
+                ListTile(
+                  title: Text("Notifications"),
+                  leading: Icon(Icons.notifications_outlined),
+                ),
+                ListTile(
+                  title: Text("Settings"),
+                  leading: Icon(Icons.settings),
+                ),
+
+                ListTile(
+                  title: Text("Logout"),
+                  leading: Icon(Icons.logout_sharp),
+                ),
               ],
             ),
-
-            const SizedBox(height: 20),
-
-            // 🔹 Recent Matches Section
-            const Text("Recent Matches",
-                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 10),
-            _buildMatchTile("Team Alpha", "Win", Colors.green),
-            _buildMatchTile("Team Bravo", "Loss", Colors.red),
-            _buildMatchTile("Team Gamma", "Win", Colors.green),
-
-            const SizedBox(height: 20),
-
-            // 🔹 Upcoming Events Section
-            const Text("Upcoming Events",
-                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 10),
-            _buildEventCard("Championship Qualifier", "20 Sept 2025"),
-            _buildEventCard("Friendly Match", "25 Sept 2025"),
           ],
         ),
       ),
-    );
-  }
-
-  // 🔹 Widget for Stats
-  static Widget _buildStatCard(String title, String value, IconData icon) {
-    return Container(
-      width: 100,
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Color(0xFF1A1F38),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        children: [
-          Icon(icon, color: Colors.white, size: 28),
-          const SizedBox(height: 8),
-          Text(value,
-              style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
-          Text(title, style: const TextStyle(color: Colors.grey, fontSize: 14)),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Color(0xFF0A192F),
+        selectedItemColor: Colors.white,
+        //
+        unselectedItemColor: Color(0xFFB0B0B0),
+        // currentIndex: ,
+        // magenta-neon
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.groups), label: "Team"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bar_chart),
+            label: "Analytics",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.show_chart),
+            label: "MY Performance",
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.message), label: "Message"),
         ],
       ),
-    );
-  }
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage("assets/images/login background.png"),
+          ),
+        ),
 
-  // 🔹 Widget for Recent Matches
-  static Widget _buildMatchTile(String opponent, String result, Color resultColor) {
-    return Card(
-      color: const Color(0xFF1A1F38),
-      child: ListTile(
-        leading: const Icon(Icons.sports_esports, color: Colors.white),
-        title: Text(opponent, style: const TextStyle(color: Colors.white)),
-        trailing: Text(result, style: TextStyle(color: resultColor, fontWeight: FontWeight.bold)),
-      ),
-    );
-  }
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: double.infinity,
+                height: 80,
+                color: Colors.amber,
+                child: ListTile(
+                  leading: CircleAvatar(
+                    radius: 20,
+                    // size control karein
+                    backgroundImage: AssetImage("assets/images/profile.png"),
+                    // image path
+                    backgroundColor: Colors
+                        .blueAccent, // agar image na mile to ye color show hoga
+                  ),
+                  title: Text(
+                    "Raees Khan",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  // optional
+                  subtitle: Text(
+                    "Team Leader",
+                    style: TextStyle(color: Colors.white),
+                  ), // optional
+                ),
+              ),
+              SizedBox(height: 10),
+              Container(
+                width: double.infinity,
+                height: 70,
+                color: Colors.orange,
+                child: Stack(
+                  children: [
+                    ListTile(
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.greenAccent,
+                        child: Icon(Icons.person),
+                      ),
+                      title: Text("Name"),
+                      subtitle: Text("Player Role"),
+                      trailing: Icon(Icons.star_border),
+                    ),
 
-  // 🔹 Widget for Events
-  static Widget _buildEventCard(String eventName, String date) {
-    return Card(
-      color: const Color(0xFF1A1F38),
-      child: ListTile(
-        leading: const Icon(Icons.event, color: Colors.white),
-        title: Text(eventName, style: const TextStyle(color: Colors.white)),
-        subtitle: Text(date, style: const TextStyle(color: Colors.grey)),
+                    SizedBox(height: 100),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10),
+              Container(
+                width: double.infinity,
+                height: double.infinity,
+                color: Colors.cyan,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(image: AssetImage("assets/images/Leader.png"),
+                                  fit:BoxFit.cover)
+                          ),
+
+
+                        ),
+
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 50, top: 10),
+                              child: FaIcon(
+                                FontAwesomeIcons.crosshairs,
+                                size: 20,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 50, top: 15),
+                              child: Text("Kills"),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 50),
+                              child: Text("24.1m"),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: FaIcon(FontAwesomeIcons.bolt, size: 20),
+                            ),
+                            Text("Demage"),
+                            Text("764"),
+                          ],
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.handshake,
+                                size: 30,
+                              ),
+                            ),
+                            Text("Assists"),
+                            Text("5"),
+                          ],
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Icon(Icons.timer, size: 20),
+                            ),
+                            Text("Survival"),
+                            Text("24.1m"),
+                          ],
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Icon(Icons.medical_services, size: 20),
+                            ),
+                            Text("Rescue"),
+                            Text("5"),
+
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 50,),
+                    SingleChildScrollView(
+                      child: SizedBox(
+
+                          width: double.infinity,
+                          height: double.infinity,
+                          child: RadarChart(ticks: ticks, features: features, data: data)),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
