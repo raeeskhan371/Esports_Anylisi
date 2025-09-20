@@ -11,8 +11,8 @@ Widget _columnStat(IconData icon, String label, String value, String pmatches, {
       ),
       SizedBox(height: 6),
       Text(label, style: TextStyle(fontSize: 12)),
-      Text(value, style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
-      Text(pmatches, style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
+      Text(value, style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
+      Text(pmatches, style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
     ],
   );
 }

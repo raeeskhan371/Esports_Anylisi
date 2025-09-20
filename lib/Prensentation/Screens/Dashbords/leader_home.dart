@@ -1,5 +1,3 @@
-
-
 import 'package:esports_analysis_application/Prensentation/Screens/Widgets/Widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +33,6 @@ class _leaderHomeState extends State<leaderHome> {
     const data = [
       [35, 42, 28, 40, 22], // Kills, Damage, Assists, Survival, Rescue
     ];
-
 
     return Scaffold(
       appBar: AppBar(
@@ -141,122 +138,264 @@ class _leaderHomeState extends State<leaderHome> {
       ),
       body:
           // Top Banner Section
-      SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                width: double.infinity,
-                height: 80,
-                decoration: BoxDecoration(
-                  color: Color(0xFF0E2740),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                // Top Banner Pic Control
-                child: ListTile(
-                  leading: Container(
-                    width: 48,
-                    height: 48,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: Colors.blueGrey,
-                        image: DecorationImage(image: AssetImage("assets/images/Leader.png"),
-                        fit: BoxFit.cover)
-                    ),
-                  ),
-                  title: Text("Raees Khan",style: TextStyle(color: Colors.white),),
-                  subtitle:Text("Team Leader",style: TextStyle(color: Colors.grey),),
-                  trailing: Icon(Icons.star_border_purple500_sharp,color: Colors.white,size: 30,),
-                ),
-                ),
-            ),
-            SizedBox(height: 12),
-
-
-          // Player Card Info
-
-            Card(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-              elevation: 4,
-              child:Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row( mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 70,
-                      height: 70,
+          SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: SafeArea(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Container(
+                      width: double.infinity,
+                      height: 80,
                       decoration: BoxDecoration(
+                        color: Color(0xFF0E2740),
                         borderRadius: BorderRadius.circular(8),
-                        image: DecorationImage(image: AssetImage("assets/images/Leader.png"),
-                            fit:BoxFit.cover )
+                      ),
+                      // Top Banner Pic Control
+                      child: ListTile(
+                        leading: Container(
+                          width: 48,
+                          height: 48,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: Colors.blueGrey,
+                            image: DecorationImage(
+                              image: AssetImage("assets/images/Leader.png"),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        title: Text(
+                          "Raees Khan",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        subtitle: Text(
+                          "Team Leader",
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        trailing: Icon(
+                          Icons.star_border_purple500_sharp,
+                          color: Colors.white,
+                          size: 30,
+                        ),
                       ),
                     ),
-                    SizedBox(width: 12,),
-                    // Player Name Role
-                    Expanded(
-                      child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start
-                        ,
+                  ),
+                  SizedBox(height: 12),
+
+                  // Player Card Info
+                  Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    elevation: 4,
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                          children: [
+                            playerColumn(
+                              "assets/images/Soldier.png",
+                              "Player Name",
+                              "Player Role",
+                            ),
+                            SizedBox(width: 20),
+                            playerColumn(
+                              "assets/images/Soldier.png",
+                              "Player Name",
+                              "Player Role",
+                            ),
+                            SizedBox(width: 20),
+                            playerColumn(
+                              "assets/images/Soldier.png",
+                              "Player Name",
+                              "Player Role",
+                            ),
+                            SizedBox(width: 20),
+                            playerColumn(
+                              "assets/images/Soldier.png",
+                              "Player Name",
+                              "Player Role",
+                            ),
+                            SizedBox(width: 10),
+                            playerColumn(
+                              "assets/images/Soldier.png",
+                              "Player Name",
+                              "Player Role",
+                            ),
+                            SizedBox(width: 10),
+                            playerColumn(
+                              "assets/images/Soldier.png",
+                              "Player Name",
+                              "Player Role",
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    elevation: 4,
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text("Player Name ",style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                          SizedBox(height: 4),
-                          Text('Role', style: TextStyle(fontSize: 13)),
-                          SizedBox(height: 12),
+                          Container(
+                            width: 70,
+                            height: 70,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              image: DecorationImage(
+                                image: AssetImage("assets/images/Leader.png"),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 12),
+                          // Player Name Role
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Player Name ",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(height: 4),
+                                Text('Role', style: TextStyle(fontSize: 13)),
+                                SizedBox(height: 12),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    _columnStat(
+                                      FontAwesomeIcons.gamepad,
+                                      "Matches",
+                                      "3",
+                                      "",
+                                      color: Colors.blue,
+                                    ),
+                                    _columnStat(
+                                      FontAwesomeIcons.crosshairs,
+                                      "Kills",
+                                      "7",
+                                      "",
+                                      color: Colors.redAccent,
+                                    ),
+                                    _columnStat(
+                                      FontAwesomeIcons.boltLightning,
+                                      "Damage",
+                                      "456",
+                                      "",
+                                      color: Colors.orange,
+                                    ),
+                                    _columnStat(
+                                      FontAwesomeIcons.handshake,
+                                      "Assists",
+                                      "7",
+                                      "",
+                                      color: Colors.blue,
+                                    ),
+                                    _columnStat(
+                                      FontAwesomeIcons.stopwatch,
+                                      "Survival",
+                                      "7",
+                                      "",
+                                      color: Colors.green,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    elevation: 5,
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Column(
+                        children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              _columnStat(FontAwesomeIcons.gamepad, "Matches", "3", "" ,color: Colors.blue),
-                              _columnStat(FontAwesomeIcons.crosshairs, "Kills", "7", "" ,color: Colors.redAccent),
-                              _columnStat(FontAwesomeIcons.boltLightning, "Damage", "456", "" ,color: Colors.orange),
-                              _columnStat(FontAwesomeIcons.handshake, "Assists", "7", "" ,color: Colors.blue),
-                              _columnStat(FontAwesomeIcons.stopwatch, "Survival", "7", "" ,color: Colors.green),
-                              
+                              _columnStat(
+                                FontAwesomeIcons.shield,
+                                "Organaization",
+                                "IHS",
+                                "",
+                                color: Colors.green,
+                              ),
+                              _columnStat(
+                                FontAwesomeIcons.gamepad,
+                                "Matches",
+                                "3",
+                                "",
+                                color: Colors.blue,
+                              ),
+                              _columnStat(
+                                FontAwesomeIcons.map,
+                                "Maps",
+                                "S,M,R",
+                                "",
+                                color: Colors.redAccent,
+                              ),
+                              _columnStat(
+                                FontAwesomeIcons.stopwatch,
+                                "Timing",
+                                "(7:30)",
+                                "",
+                                color: Colors.orange,
+                              ),
+                              _columnStat(
+                                FontAwesomeIcons.peopleGroup,
+                                "Lineup",
+                                "PPRG",
+                                "",
+                                color: Colors.blue,
+                              ),
 
 
                             ],
                           ),
-
-
                         ],
-
-
                       ),
-                    )
-
-
-
-
-                  ],
-
-                ),
-              )
-
-
-
-            )
-          ],
-        ),
-      ),
-
-
-
-
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
     );
   }
 }
 
+// Helper For Leader Home Dart
 
-
-
-
-
-
-
-
-
-
-
-Widget _columnStat(IconData icon, String label, String value, String pmatches, {Color color = Colors.white}) {
+Widget _columnStat(
+  IconData icon,
+  String label,
+  String value,
+  String pmatches, {
+  Color color = Colors.white,
+}) {
   return Column(
     mainAxisSize: MainAxisSize.min,
     children: [
@@ -267,15 +406,98 @@ Widget _columnStat(IconData icon, String label, String value, String pmatches, {
       SizedBox(height: 6),
       Text(label, style: TextStyle(fontSize: 12)),
       Text(value, style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
-      Text(pmatches, style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
+      Text(
+        pmatches,
+        style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+      ),
     ],
   );
 }
 
+Widget playerColumn(String pImage, String pName, String pRole) {
+  return Column(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      CircleAvatar(
+        radius: 40,
+        child: Container(
+          width: 70,
+          height: 70,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            image: DecorationImage(
+              image: AssetImage(pImage),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ),
+      SizedBox(height: 5),
+      Text(
+        pName,
+        style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+        textAlign: TextAlign.center,
+      ),
+      Text(
+        pRole,
+        style: TextStyle(fontSize: 11, color: Colors.grey),
+        textAlign: TextAlign.center,
+      ),
+    ],
+  );
+}
 
+// helper For schudle of Matches timing
 
+Widget matches(
+  IconData icons,
+  String ORGname,
+  String matchName,
+  String Timing,
+  String Lineup,
+) {
+  return Container(
+    width: double.infinity,
+    height: 150,
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(8),
+    ),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.start,
 
-
-
-
-
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              children: [
+                IconTheme(
+                  data: IconThemeData(color: Colors.red, size: 35),
+                  child: FaIcon(icons),
+                ),
+                SizedBox(height: 6),
+                Text(
+                  ORGname,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+                Text(
+                  Timing,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
+}
